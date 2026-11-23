@@ -1,0 +1,12 @@
+
+RewriteEngine On
+
+# Menghindari konflik dengan folder asli
+Options -MultiViews
+
+# Jika file dan folder tidak ditemukan
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Mengarahkan URL ke index.php
+RewriteRule ^(.+)$ index.php?page=$1 [QSA,L]
